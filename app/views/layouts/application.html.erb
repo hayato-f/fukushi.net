@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>福祉.COM</title>
+    <title>福祉.net | <%= yield(:title)%></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,14 +11,20 @@
   </head>
 
   <body>
-    <header>
-        <ul>
-          <li><%= link_to "my_page", "#" %></li>
-          <li><%= link_to "post", "#" %></li>
-          <li><%= link_to "about", "#" %></li>
-          <li></li>
-        </ul>
+    <header class="header">
+      <div >
+        <nav>
+          <ul>
+            <li><%= link_to "my_page", "#" %></li>
+            <li><%= link_to "post", "#" %></li>
+            <li><%= link_to "about", "#" %></li>
+            <li></li>
+          </ul>
+        </nav>
+      </div>
     </header>
-    <%= yield %>
+    <div class="container text-center">
+      <%= yield %>
+    </div>
   </body>
 </html>
