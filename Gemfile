@@ -9,6 +9,7 @@ gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
+gem 'bcrypt'
 gem 'bootstrap-sass', '3.4.1'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
@@ -28,6 +29,11 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+
+# pryの実装と、rails consoleに追加設定。
+# gem 'pry-rails'
+# gem 'hirb'
+# gem 'hirb-unicode'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

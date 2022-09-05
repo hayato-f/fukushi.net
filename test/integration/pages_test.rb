@@ -9,6 +9,6 @@ class PagesTest < ActionDispatch::IntegrationTest
                                               # ?の部分には、my_page_pathが代入される
     assert_select "a[href=?]", post_path
     assert_select "a[href=?]", about_path
-    assert_select "a[href=?]", signup_path
+    assert_select "a[href=?]", signup_path, count:1
   end
 end
