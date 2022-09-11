@@ -14,7 +14,12 @@
   <body>
     <%= render 'layouts/header'%>
     <div class="container text-center">
+      <% flash.each do |message_type, message| %> <%# flash変数(users_controllerで定義)は、ハッシュを持つ。
+                                                  railsコンソールで、flash変数の中身に代入して、確認してみる。 %>
+        <div class="flash"><%= message %></div>
+      <% end %>
       <%= yield %>
+      <%= debug(params) if Rails.env.devlopment? %>  <!-- デバッグ　-->
     </div>
   </body>
 </html>

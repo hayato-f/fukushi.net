@@ -1,3 +1,26 @@
 <% provide(:title, "signup") %>
 <h1>Users#new(企業用)</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<div class="form">
+    <%= form_with(model: @user, local: true) do |x| %>
+    <%= render 'users/error_messages' %>
+    <div>
+        <%= x.label :名前 %>
+        <%= x.text_field :name %>
+    </div>
+    <div>
+        <%= x.label :メールアドレス %>
+        <%= x.email_field :email %>
+    </div>
+    <div>
+        <%= x.label :パスワード %>
+        <%= x.password_field :password %>
+    </div>
+    <div>
+        <%= x.label :パスワード確認 %>
+        <%= x.password_field :password_confirmation %>
+    </div>
+    <div>
+        <%= x.submit "登録" %>
+    </div>
+    <% end %>
+</div>

@@ -6,3 +6,20 @@ li {
 header{
     background-color: aquamarine;
 }
+
+.form {
+    display: flex;
+    flex-flow: column;
+}
+
+.errors {
+    border: solid;
+    font-size: 15px;
+    color: rgb(170, 1, 1);
+    background: #111111;
+}
+
+.flash {
+    border: dotted;
+    font-size: 15px;
+}

@@ -8,6 +8,8 @@ gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
+
+
 gem 'puma', '~> 5.0'
 gem 'bcrypt'
 gem 'bootstrap-sass', '3.4.1'
@@ -31,8 +33,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 # pryの実装と、rails consoleに追加設定。
-# gem 'pry-rails'
-# gem 'hirb'
+gem 'hirb' # hirb本体
 # gem 'hirb-unicode'
 
 group :development, :test do

@@ -1,0 +1,5 @@
+<%= provide(:title, @user.name)%>
+<h1>
+    <%= gravatar_for @user %> <%# アイコン画像は仮 => users.helperに記載%>
+    <%= @user.name %>
+</h1>
