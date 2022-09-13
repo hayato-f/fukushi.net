@@ -8,6 +8,6 @@ module ApplicationHelper
             full_title = default_title + " | " + page_title
         end
     end
-     
+    
 
 end

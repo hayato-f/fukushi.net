@@ -2,7 +2,7 @@
 <div class="errors" >
     <p><%= @user.errors.count%>個のエラー</p>
     <ul>
-        <%= @user.errors.full_messages.each do |error| %>
+        <% @user.errors.full_messages.each do |error| %>
             <li><%= error %></li>
         <% end %>
     </ul>

@@ -1,7 +1,7 @@
 <% provide(:title, "signup") %>
-<h1>Users#new(企業用)</h1>
+<h1>新規登録(企業用)</h1>
 <div class="form">
-    <%= form_with(model: @user, local: true) do |x| %>
+    <%= form_with(model: @user, local: true) do |x| %>  <%# model: @userは、URLを示している?。(usersモデルがあり、そこに対応するコントローラーで、＠userを定義づけ。)%>
     <%= render 'users/error_messages' %>
     <div>
         <%= x.label :名前 %>

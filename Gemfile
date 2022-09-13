@@ -9,6 +9,8 @@ gem 'rails', '~> 6.1.5', '>= 6.1.5.1'
 gem 'pg', '~> 1.1'
 # Use Puma as the app server
 
+#エラーメッセージを日本語化する
+gem 'rails-i18n'
 
 gem 'puma', '~> 5.0'
 gem 'bcrypt'
