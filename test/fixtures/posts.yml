@@ -1,0 +1,19 @@
+hello:
+  content: "hello"
+  created_at: <%= 10.years.ago%>
+  user: hogefuga
+
+lunch:
+  content: "I'm,hungry!!"
+  created_at: <%= Time.zone.now %>
+  user: hogefuga
+
+goodbye:
+  content: "good-bye"
+  created_at: <%= 10.minutes.ago%>
+  user: hogefuga
+
+most_recent:
+  content: "Writing a short test"
+  created_at: <%= Time.zone.now %>
+  user: hogefuga

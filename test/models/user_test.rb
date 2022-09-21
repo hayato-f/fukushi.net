@@ -57,4 +57,13 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
 
+  # test "ユーザーを削除すると、投稿も消える" do
+  #   @user.save
+  #   @user.post.create!(content: "hohohohohoho")
+  #   assert_difference "post.count", -1 do
+  #     @user.destroy
+  #   end
+  # end
+
+
 end

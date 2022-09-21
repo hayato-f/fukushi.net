@@ -1,0 +1,22 @@
+<% provide(:title, "Users") %>
+<h1>ユーザー (一覧)</h1>
+
+<%= will_paginate %>
+
+<ul>
+    <%= render @users %>   <%# @users => users_controllerの、@user(Userオブジェクト)であると判断。 => その後、_user.html.erbにレンダリング%>
+
+<%
+=begin 
+%> 
+元のコード => <% @users.each do |user| %>
+                <li><%= gravatar_for user, size: 50 %></li>
+                <li><%= link_to user.name, user %></li>
+            <% end %>
+<%
+=end
+%>
+
+</ul>
+
+<%= will_paginate %>

@@ -15,4 +15,4 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
 #     assert flash.empty?   #　ページを移動したので、flashは消えるべき。
 
 #   end
-# end
+end

@@ -1,14 +1,16 @@
 class User < ApplicationRecord
+    has_many :posts, dependent: :destroy
+
     before_save { self.email = email.downcase }   #データベースに保存する前に、強制的に小文字に変換。（大文字、小文字は同一と、認識して欲しいため）
                                                     #self => 既存のユーザーを指す。右辺はself.email.downcasの省略
     #↓nameに値が存在していたら、validate(有効)
     validates :name, presence: true  , length: {maximum:50}
     validates :email, presence: true, length: {maximum:255},
                     uniqueness: { case_sensitive: false } #emailの一意性
-    has_secure_password   #ハッシュかしたパスワードをpassword_digestカラムに保存可能になる。
+    has_secure_password   #ハッシュかしたパスワードをpassword_digestカラムに保存可能になる。 => このメソッドのおかげで、user新規作成時は、有効なパスワードがないと、trueにならない。
                             #　authenticateメソッドが使用できるようになる。
                             # 他にもできるようになる事がある。要チェック。
-    validates :password, presence: true, length: { minimum:6 }
+    validates :password, presence: true, length: { minimum:6 }, allow_nil: true  #allow_nil: true => プロフィール更新時には、パスワード未入力でもOK
     
     # 渡された文字列のハッシュ値を返す
     def User.digest(string)                                                         # 定義したおかげで、fixtureが作成できるようになった。

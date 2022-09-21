@@ -2,4 +2,13 @@
 <h1>
     <%= gravatar_for @user %> <%# アイコン画像は仮 => users.helperに記載%>
     <%= @user.name %>
+    <%= @user.email %>
 </h1>
+<div>
+    <%= link_to "プロフィール編集", edit_user_path(current_user)%>  <%# ~3000/users/1/edit%>
+    <%# if posts.any? %> 
+        <div><%#= @user.posts.cout %></div>
+        <ol><%#= render @posts %></ol>
+        <%#= will_pagenate @posts %>
+    <%# end %>
+</div>

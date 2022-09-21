@@ -2,9 +2,12 @@ Rails.application.routes.draw do
   root "pages#top"
   get '/signup', to: 'users#new'
   get '/top', to: 'pages_#post'
-  get '/post', to: 'pages#post'
+  # get '/post', to: 'pages#post'
   get '/about', to: 'pages#about'
   get '/my_page', to: 'pages#my_page'
+
+  get '/posts', to: "posts#new"
+  post '/posts', to: "posts#create"
 
   get '/login', to: 'sessions#new'          #restアーキテクチャ　get => new
   post '/login', to: 'sessions#create'      #restアーキテクチャ　post => create

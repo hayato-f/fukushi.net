@@ -9,5 +9,6 @@ class PagesController < ApplicationController
   end
 
   def my_page
+    # @user = User.find(params[:id])
   end
 end

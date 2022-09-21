@@ -5,10 +5,10 @@ class PagesTest < ActionDispatch::IntegrationTest
     get root_path   #テストするページに移動
     assert_template 'pages/top'   #移動先のページが正しく描画されているかのチェック
     assert_select "a[href=?]", root_path
-    assert_select "a[href=?]", my_page_path   # リンク先に飛べるかテスト
+    # assert_select "a[href=?]", my_page_path   # リンク先に飛べるかテスト
                                               # ?の部分には、my_page_pathが代入される
     assert_select "a[href=?]", post_path
     assert_select "a[href=?]", about_path
-    assert_select "a[href=?]", signup_path, count:1
+    # assert_select "a[href=?]", signup_path, count:1
   end
 end
