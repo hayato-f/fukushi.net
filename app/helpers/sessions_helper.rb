@@ -34,13 +34,15 @@ module SessionsHelper
         @current_user = nil
     end
 
+    def store_location                                          # アクセスしようとした、URLを記憶する。
+        session[:forwarding_url] = request.original_url if request.get?
+    end
+
     def redirect_back_or(default)                            #記憶したURLか、デフォルト値にredirect
         redirect_to (session[:forwarding_url] || default)
         session.delete(:forwarding_url)
     end
 
-    def store_location                                          # アクセスしようとした、URLを記憶する。
-        session[:forwarding_url] = request.original_url if request.get?
-    end
+
 
 end

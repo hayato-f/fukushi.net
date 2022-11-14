@@ -26,7 +26,7 @@
       flash[:success] = "#{@user.name}さん、Welcome" # flash変数は、ハッシュの中身を持つ。　 => flash{ success: "@userさん、Welcome""}
       # redirect_to @user # redirect_to user_url(@user)と同じ意味　＝＞　userによって、ページ内容が変化（動的）
                         # redirect_to user_path（静的なページ）でもよさそうだが、登録した個人のページ（動的な動作）にアクセスしたいため、これだと、エラーになる。
-      redirect_back_or user
+      redirect_back_or @user
       else
       flash[:faild] = "ユーザー作成に失敗しました"
       render 'new'
@@ -35,16 +35,19 @@
 
   def show 
     @user = User.find(params[:id])
-    # @posts = @user.posts.pagenate(page: params[:page])
-    # debugger
+    @posts = @user.posts.paginate(page: params[:page])
+    # byebug
+  
   end
 
   def edit
     @user = User.find(params[:id])
+    # @image = user.image
   end
 
   def update
     @user = User.find(params[:id])
+    # @user.image.attach(params[:user][:image])
     if  @user.update(user_params)
       flash[:success] = "編集内容を更新しました"
       redirect_to @user
@@ -62,16 +65,9 @@ end
 
   private
     def user_params
-      params.require(:user).permit(:name, :email, :password, :password_confirmation)
+      params.require(:user).permit(:name, :email, :image, :password, :password_confirmation)
     end
 
-    def logged_in_user
-      unless logged_in?
-        store_location    # sessions_helperにて定義
-        flash[:denger] = "操作を実行には、ログインが必要です"
-        redirect_to login_url  # ~~~_urlは絶対パスで指定。  cf)~~~_path => 相対パス.
-      end
-    end
 
     def correct_user
       @user = User.find(params[:id])

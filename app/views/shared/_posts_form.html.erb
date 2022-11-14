@@ -1,0 +1,23 @@
+<div class="form">
+    <%= form_with(model: @post, local: true, multipart: true, accept: "image") do |f| %>  <%# => データベースとやり取りする、@postを使えるようにするには、対応アクションで定義する。 %>
+        <%= render 'shared/error_messages', object: f.object %>   <%# object: f.object => ここでは、@postに化ける。
+                                                                エラーメッセージのパーシャルは使いまわしているので、@userや、@postがある。
+                                                                object: f.objectと記述することで、そのページの( model: @~~~ )を読み込んでくれる。 %>
+        <div class="form_title">
+            <%= f.label :タイトル %>
+            <%= f.text_field :title %>
+        </div>
+        <div class="form_content">
+            <%= f.label :本文 %>
+            <%= f.text_area :content %>
+        </div>
+        <div class="post_image">
+            <%= f.label :画像%>
+            <div class="image"><%= f.file_field :image %></div>
+        </div>
+        <div>
+            <%= f.submit %>
+        </div>
+    <% end %>
+</div>
+

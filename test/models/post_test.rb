@@ -3,7 +3,9 @@ require "test_helper"
 class PostTest < ActiveSupport::TestCase
   def setup
     @user = users(:hogefuga)    # users.ymlで作成したテストユーザー
-    @post = @user.posts.build( content: "てってってっテストだよ〜ん")
+
+    # ↓userモデルと、postモデルが関連づけられているから、以下の記法ができる。
+    @post = @user.posts.build( content: "てってってっテストだよ〜ん")  #=>@user.posts.build => @user(hogefuga)、postのオブジェクトを生成。
   end
 
   test "postの存在検証" do
@@ -25,7 +27,7 @@ class PostTest < ActiveSupport::TestCase
     assert_not @post.valid?
   end
 
-  # test "fixtureのデータ最新データと、dbの最初のデータが一緒かのテスト" do
-  #   assert_equal posts(:most_recent), Post.first
-  # end
+  test "fixtureのデータ最新データと、dbの最初のデータが一緒かのテスト" do
+    assert_equal posts(:most_recent), Post.first
+  end
 end

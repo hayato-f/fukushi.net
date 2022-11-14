@@ -1,5 +1,7 @@
 class User < ApplicationRecord
     has_many :posts, dependent: :destroy
+    # has_one_attached :image
+    mount_uploader :image, IconImagesUploader # アイコン
 
     before_save { self.email = email.downcase }   #データベースに保存する前に、強制的に小文字に変換。（大文字、小文字は同一と、認識して欲しいため）
                                                     #self => 既存のユーザーを指す。右辺はself.email.downcasの省略
@@ -17,5 +19,10 @@ class User < ApplicationRecord
         cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                     BCrypt::Engine.cost
         BCrypt::Password.create(string, cost: cost)
+    end
+
+    def feed
+        # Post.where("user_id = ?", id)  => 任意のユーザーの投稿のみ表示。フォロー機能をつけて、フォローユーザーの投稿をみれるようにする。
+        Post.all # => 全ユーザーの投稿を表示する
     end
 end

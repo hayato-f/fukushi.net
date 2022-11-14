@@ -7,6 +7,6 @@ class CreatePosts < ActiveRecord::Migration[6.1]
       t.timestamps
     end
     add_index :posts, [:user_id, :created_at]  #  => created_atを記述することで、作成時刻から検索しやすくなる。
-                                            # cf)複合キーインデックス
+                                              # cf)複合キーインデックス
   end
 end

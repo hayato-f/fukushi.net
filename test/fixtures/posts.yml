@@ -3,8 +3,13 @@ hello:
   created_at: <%= 10.years.ago%>
   user: hogefuga
 
-lunch:
-  content: "I'm,hungry!!"
+# lunch:
+#   content: "I'm,hungry!!"
+#   created_at: <%= Time.zone.now %>
+#   user: hogefuga
+
+most_recent:
+  content: "Writing a short test"
   created_at: <%= Time.zone.now %>
   user: hogefuga
 
@@ -13,7 +18,9 @@ goodbye:
   created_at: <%= 10.minutes.ago%>
   user: hogefuga
 
-most_recent:
-  content: "Writing a short test"
-  created_at: <%= Time.zone.now %>
-  user: hogefuga
+# <% 30.times do |n| %>
+# post_<%= n %>:
+#   content: <%= Faker::Lorem.sentence(word_count: 5) %>
+#   created_at: <%= 42.days.ago %>
+#   user: hogefuga
+# <% end %>

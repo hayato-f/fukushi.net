@@ -1,14 +1,26 @@
 <%= provide(:title, @user.name)%>
-<h1>
-    <%= gravatar_for @user %> <%# アイコン画像は仮 => users.helperに記載%>
-    <%= @user.name %>
-    <%= @user.email %>
+<h1 class="top_profile">
+    <%#= gravatar_for @user %> <%# アイコン画像は仮 => users.helperに記載%>
+    <%#= image_tag user.image if user.image.attached? %>
+    <li clss="name">
+        <% if @user.image.blank? %>
+            <%= image_tag 'kanban_jyunbi.png', size: "100x100" %>
+        <% else %>
+            <%= image_tag @user.image.to_s, accept: "image/jpeg, image/gif, image/png", size: '100x100'%>
+        <%# #なぜ .to_sをすると画像が取り出せるのか。付けないとエラーになる。 %>
+        <% end %>
+    </li>
+    <li class="name"><%= @user.name %></li>
+    <li class="email"><%= @user.email %></li>
+    <div>
+        <%= link_to "プロフィール編集", edit_user_path(current_user)%>  <%# localhost:3000/users/1/edit%>
+    </div>
 </h1>
+
 <div>
-    <%= link_to "プロフィール編集", edit_user_path(current_user)%>  <%# ~3000/users/1/edit%>
-    <%# if posts.any? %> 
-        <div><%#= @user.posts.cout %></div>
-        <ol><%#= render @posts %></ol>
-        <%#= will_pagenate @posts %>
-    <%# end %>
+    <% if @user.posts.any? %> 
+        <div>投稿（<%= @user.posts.count %> posts）</div>
+        <%= render @posts %>
+        <%= will_paginate @posts %>
+    <% end %>
 </div>

@@ -2,7 +2,7 @@
 <h1>プロフィール編集</h1>
 <div class="form">
     <%= form_with(model: @user, local: true) do |x| %>
-    <%= render 'users/error_messages' %>
+    <%= render 'shared/error_messages', object: x.object %>
     <div>
         <%= x.label :名前 %>
         <%= x.text_field :name %>
@@ -18,6 +18,9 @@
     <div>
         <%= x.label :パスワード（確認） %>
         <%= x.password_field :password_confirmation %>
+    </div>
+    <div>
+        <%= x.file_field :image %>
     </div>
     <div>
         <%= x.submit :変更 %>

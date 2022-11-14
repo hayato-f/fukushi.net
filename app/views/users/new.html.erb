@@ -2,8 +2,8 @@
 <h1>新規登録(企業用)</h1>
 <div class="form">
     <%= form_with(model: @user, local: true) do |x| %>  <%# model: @userは、URLを示している?。(usersモデルがあり、そこに対応するコントローラーで、＠userを定義づけ。)%>
-    <%= render 'users/error_messages' %>
-    <div>
+    <%= render 'shared/error_messages', object: x.object %> 
+    <div
         <%= x.label :名前 %>
         <%= x.text_field :name %>
     </div>

@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get '/about', to: 'pages#about'
   get '/my_page', to: 'pages#my_page'
 
-  get '/posts', to: "posts#new"
-  post '/posts', to: "posts#create"
+  # get '/posts', to: "posts#new"
+  # post '/posts', to: "posts#create"
 
   get '/login', to: 'sessions#new'          #restアーキテクチャ　get => new
   post '/login', to: 'sessions#create'      #restアーキテクチャ　post => create
@@ -19,6 +19,6 @@ Rails.application.routes.draw do
                       # get => showアクションに対応づけられる。
                       # usersコントローラーのshowアクションにルーティング
                       # つまり、resourcesは、自動でget,post,update,delete...を自動で対応づけを作ってくれる。
+  resources :posts, only: [:create, :destroy]  # => 使える、アクション・httpメソッドの限定。こうする事で、create、destroyアクションに対応したpostとdeleteメソッドが使える。
 
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

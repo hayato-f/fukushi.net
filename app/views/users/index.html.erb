@@ -2,10 +2,8 @@
 <h1>ユーザー (一覧)</h1>
 
 <%= will_paginate %>
-
-<ul>
+<li>
     <%= render @users %>   <%# @users => users_controllerの、@user(Userオブジェクト)であると判断。 => その後、_user.html.erbにレンダリング%>
-
 <%
 =begin 
 %> 
@@ -16,7 +14,6 @@
 <%
 =end
 %>
-
-</ul>
+</li>
 
 <%= will_paginate %>
