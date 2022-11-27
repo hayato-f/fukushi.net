@@ -1,5 +1,6 @@
 class User < ApplicationRecord
     has_many :posts, dependent: :destroy
+    has_many :favorites#, foreign_key: :user_id
     # has_one_attached :image
     mount_uploader :image, IconImagesUploader # アイコン
 

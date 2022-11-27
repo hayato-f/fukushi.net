@@ -19,6 +19,8 @@ Rails.application.routes.draw do
                       # get => showアクションに対応づけられる。
                       # usersコントローラーのshowアクションにルーティング
                       # つまり、resourcesは、自動でget,post,update,delete...を自動で対応づけを作ってくれる。
-  resources :posts, only: [:create, :destroy]  # => 使える、アクション・httpメソッドの限定。こうする事で、create、destroyアクションに対応したpostとdeleteメソッドが使える。
+  resources :posts, only: [:create, :destroy] do  # => 使える、アクション・httpメソッドの限定。こうする事で、create、destroyアクションに対応したpostとdeleteメソッドが使える。
+    resources :favorites, only: [:create, :destroy]
+  end
 
 end
