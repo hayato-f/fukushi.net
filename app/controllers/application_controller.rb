@@ -9,4 +9,5 @@ class ApplicationController < ActionController::Base
                 redirect_to login_url  # ~~~_urlは絶対パスで指定。  cf)~~~_path => 相対パス.
             end
         end
+
 end

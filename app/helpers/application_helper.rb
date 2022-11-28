@@ -8,6 +8,10 @@ module ApplicationHelper
             full_title = default_title + " | " + page_title
         end
     end
+
     
 
+    def favorite?(post_id)
+        Favorite.where(user_id: current_user.id, post_id: post_id).exists?
+    end
 end

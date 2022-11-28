@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-    has_many :posts, dependent: :destroy
-    has_many :favorites#, foreign_key: :user_id
+    has_many :favorites, dependent: :destroy  #中間テーブルのアソシエーションの順番に気をつける      #, foreign_key: :user_id
+    has_many :posts, dependent: :destroy, through: :favorites   #throughを定義しないとリレーションが組めない。
     # has_one_attached :image
     mount_uploader :image, IconImagesUploader # アイコン
 

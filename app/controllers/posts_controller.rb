@@ -2,10 +2,23 @@ class PostsController < ApplicationController
     before_action :logged_in_user, only: [:create, :destroy]
     before_action :correct_user, only: :destroy
 
-    # def new                   => 今回は、直接ユーザーページに、入力フォームを作るので、要らない。
+
+    def index
+        # @posts = Post.all
+        @feed_items = current_user.feed.paginate( page: params[:page]) # feed => user.rbにメソッドとして定義
+        # byebug
+    end
+
+    def show
+        @favorite = []
+        @post = Post.find(params[:id])
+        @favorite << Favorite.find_by(post_id: @post.id)
+        # byebug
+    end
+    def new                   #=> 今回は、直接ユーザーページに、入力フォームを作るので、要らない。
                                 # cf) newはgetメソッドに対応づけられる。
-    #     @post =  Post.new
-    # end
+        @posts =  Post.new
+    end
 
     def create
         @post = current_user.posts.build(params_post) # => カレントユーザーのポストのbuild。　cf) buildメソッド（主キーから、外部キーのデータを作成するときに使える。）

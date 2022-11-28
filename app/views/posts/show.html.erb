@@ -1,0 +1,11 @@
+<ul>
+    <li>
+        <%= image_tag @post.user.image.to_s, accept: "image/jpeg, image/gif, image/png", size: '100x100'%>
+    </li>
+    <li><%= @post.user[:name] %></li>
+    <li><%= @post.user[:email] %></li>
+    <li><%= @post[:title] %></li>
+    <li><%= @post[:content] %></li>
+    <p>お気に入り：<%= @favorite.length  %></p>
+
+</ul>

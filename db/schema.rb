@@ -44,8 +44,8 @@ ActiveRecord::Schema.define(version: 2022_11_27_081622) do
   end
 
   create_table "favorites", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "post_id"
+    t.integer "user_id", null: false
+    t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id", "post_id"], name: "index_favorites_on_user_id_and_post_id", unique: true
