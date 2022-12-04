@@ -1,8 +1,8 @@
-<% if @feed_items.any? %>
+<% if @post_items.any? %>
     
-    <li><%= render @feed_items %></li><%# => app/views/posts/_post.html.erb
+    <li><%= render @post_items %></li><%# => app/views/posts/_post.html.erb
                                                 @feed_itemsがPostクラスを持っているため、自動的に対応する名前のパーシャル（ Postパーシャル ）を呼び出す。
                                                 この動作について、詳しく調べる。 %>
-    <%= will_paginate @feed_items %>
+    <%= will_paginate @post_items %>
 <% end %>
 

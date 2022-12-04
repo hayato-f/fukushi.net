@@ -1,8 +1,8 @@
 class PagesController < ApplicationController
   def top
     if logged_in?
-      @post = current_user.posts.build 
-      @feed_items = current_user.feed.paginate( page: params[:page])
+      @post = current_user.posts.build # コメントアウトすると、エラーになる
+      @post_items = current_user.feed.paginate( page: params[:page])
     end
   end
 
