@@ -1,10 +1,6 @@
 <% if logged_in? %>
     <div>
-    <section><%= render 'shared/user_info'%></section>
-    <section><%= render 'shared/posts_form' %></section>
-    </div>
-    <div>
-        <p class="posts_index">< 投稿一覧 ></p>
+        <h1 class="posts_index">< 投稿一覧 ></h1>
         <%= render 'shared/post_items' %>
     </div>
 <% else %>
