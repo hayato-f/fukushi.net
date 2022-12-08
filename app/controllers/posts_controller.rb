@@ -28,6 +28,7 @@ class PostsController < ApplicationController
 
 
         @post = Post.new(params_post)
+        # @category = Category.new(params_category)
         @post.user_id = current_user.id
         @post.image.attach(params[:post][:image])
         if @post.save
@@ -36,7 +37,7 @@ class PostsController < ApplicationController
             
         else
             @post_items = current_user.feed.paginate(page: params[:page])
-            render 'pages/top'
+            render 'posts/new'
         end
         # byebug
     end
@@ -52,6 +53,10 @@ class PostsController < ApplicationController
         private
             def params_post
                 params.require(:post).permit(:title, :content, :image)
+            end
+
+            def params_category
+                params.require(:category).permit(:name)
             end
 
             def correct_user

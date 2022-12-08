@@ -1,20 +1,4 @@
 <div class="form"> <%# TODO: "formは、パーシャルを使って表示する"%>
     <h1>記事を作成する</h1>
-    <%= form_with(model: @post, local: true, multipart: true, accept: "image") do |f| %>  <%# => データベースとやり取りする、@postを使えるようにするには、対応アクションで定義する。 %>
-        <div class="form_title">
-            <%= f.label :タイトル %>
-            <%= f.text_field :title %>
-        </div>
-        <div class="form_content">
-            <%= f.label :本文 %>
-            <%= f.text_area :content %>
-        </div>
-        <div class="post_image">
-            <%= f.label :画像%>
-            <div class="image"><%= f.file_field :image %></div>
-        </div>
-        <div>
-            <%= f.submit %>
-        </div>
-    <% end %>
+    <%= render 'shared/posts_form' %>
 </div>
