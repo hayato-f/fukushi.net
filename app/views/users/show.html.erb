@@ -12,14 +12,17 @@
     </li>
     <li class="name"><%= @user.name %></li>
     <li class="email"><%= @user.email %></li>
-    <div>
-        <%= link_to "プロフィール編集", edit_user_path(current_user)%>  <%# localhost:3000/users/1/edit%>
+    <div class="edit">
+        <% if current_user.id == @user.id %> <%# ログイン中のユーザーのみプロフィーりう編集画面が表示される　%>
+            <%= link_to "プロフィール編集", edit_user_path(current_user) %>  <%# localhost:3000/users/1/edit%>
+        <% end %>
     </div>
 </h1>
 
 <div>
     <% if @user.posts.any? %> 
-        <div>投稿（<%= @user.posts.count %> posts）</div>
+        <div style="font-size: large">投稿（<%= @user.posts.count %> posts）</div>
+        <%= will_paginate @posts %>
         <%= render @posts %>
         <%= will_paginate @posts %>
     <% end %>

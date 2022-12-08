@@ -17,22 +17,28 @@ class PostsController < ApplicationController
     end
     def new                   #=> 今回は、直接ユーザーページに、入力フォームを作るので、要らない。
                                 # cf) newはgetメソッドに対応づけられる。
-        @posts =  Post.new
+        @post =  Post.new
     end
 
     def create
-        @post = current_user.posts.build(params_post) # => カレントユーザーのポストのbuild。　cf) buildメソッド（主キーから、外部キーのデータを作成するときに使える。）
+        # TODO: buildメソッドが使えなくなっている。（user_idが付与されない！！）　＝＞　改修する！！
+        # @post = current_user.posts.build(params_post) # => カレントユーザーのポストのbuild。　cf) buildメソッド（主キーから、外部キーのデータを作成するときに使える。）
                                                     # Postsモデルは、Usersモデルの外部キー。
                                                     # （主キーのUsersモデル（今はログイン中のユーザー）から、そのユーザーに紐付けられたレコード（Postsモデルの）を呼び出し、Postsモデルにデータを作成する。）
-        # @post = Post.new(params_post)
+
+
+        @post = Post.new(params_post)
+        @post.user_id = current_user.id
         @post.image.attach(params[:post][:image])
         if @post.save
             flash[:sucsess] = "投稿しました！！"
             redirect_to root_url
+            
         else
+            @post_items = current_user.feed.paginate(page: params[:page])
             render 'pages/top'
         end
-
+        # byebug
     end
 
     def destroy

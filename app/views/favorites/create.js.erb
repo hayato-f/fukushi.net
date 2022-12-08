@@ -1,2 +1,2 @@
     <%#= byebug %>
-$('#favorite_button_<%= @post.id %>').html("<%= j(render partial: 'favorites/favorite', locals: {post: @post})%>");
+$('#favorite_button<%= @post.id %>').html("<%= j(render partial: 'favorites/favorite', locals: {post: @post})%>");

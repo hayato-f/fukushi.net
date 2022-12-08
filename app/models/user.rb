@@ -23,7 +23,7 @@ class User < ApplicationRecord
     end
 
     def feed
-        # Post.where("user_id = ?", id)  => 任意のユーザーの投稿のみ表示。フォロー機能をつけて、フォローユーザーの投稿をみれるようにする。
+        # Post.where("user_id = ?", id)  #=> 任意のユーザーの投稿のみ表示。フォロー機能をつけて、フォローユーザーの投稿をみれるようにする。
         Post.all # => 全ユーザーの投稿を表示する
     end
 end
