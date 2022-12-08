@@ -20,7 +20,8 @@ gem 'jquery-rails'
 
 gem 'faker',                   '2.20.0'
 gem 'will_paginate',           '3.3.1'
-gem 'bootstrap-will_paginate', '1.0.0'
+gem 'will_paginate-bootstrap4'
+# gem 'kaminari'
 gem 'active_storage_validations', '0.8.2'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
