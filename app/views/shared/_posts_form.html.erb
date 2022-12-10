@@ -15,18 +15,24 @@
             <%= f.label :画像%>
             <div class="image"><%= f.file_field :image %></div>
         </div>
-        <%= f.fields_for :category, @post.build_category do |category|%><%# radioボタンは一つしかデータ送れない。モデルを多（category）にすると、エラーになる　%>
+        <%= f.fields_for :category, @post.build_category do |c|%><%# radioボタンは一つしかデータ送れない。モデルを多（category）にすると、エラーになる　%>
             <div>
                 <div>記事にカテゴリーを付ける</div>
-                <%= category.radio_button :name, :"障がい福祉" %>
-                <%= category.label :"障がい福祉"%>
-                <%= category.radio_button :name, :"高齢者福祉" %>
-                <%= category.label :"高齢者福祉"%>
-                <%= category.radio_button :name, :"児童福祉" %>
-                <%= category.label :"児童福祉"%>
-                <%= category.radio_button :name, :"その他" %>
-                <%= category.label :"その他"%>
+                <%= c.radio_button :name, :"障がい福祉" %>
+                <%= c.label :"障がい福祉"%>
+                <%= c.radio_button :name, :"高齢者福祉" %>
+                <%= c.label :"高齢者福祉"%>
+                <%= c.radio_button :name, :"児童福祉" %>
+                <%= c.label :"児童福祉"%>
+                <%= c.radio_button :name, :"その他" %>
+                <%= c.label :"その他"%>
             </div>
+        <% end %>
+
+        <%= f.fields_for :my_category, @post.build_my_category do |m| %>
+            <div>カテゴリーを作成</div>
+            <%= m.label :カテゴリー名 %>
+            <%= m.text_field :name %>
         <% end %>
         
         
