@@ -18,9 +18,11 @@ class PostsController < ApplicationController
     def new                   #=> 今回は、直接ユーザーページに、入力フォームを作るので、要らない。
                                 # cf) newはgetメソッドに対応づけられる。
         @post =  Post.new
+        # @post.build_category => 特に必要なしっぽい
     end
 
     def create
+
         # TODO: buildメソッドが使えなくなっている。（user_idが付与されない！！）　＝＞　改修する！！
         # @post = current_user.posts.build(params_post) # => カレントユーザーのポストのbuild。　cf) buildメソッド（主キーから、外部キーのデータを作成するときに使える。）
                                                     # Postsモデルは、Usersモデルの外部キー。
@@ -28,10 +30,12 @@ class PostsController < ApplicationController
 
 
         @post = Post.new(params_post)
-        # @category = Category.new(params_category)
+        
         @post.user_id = current_user.id
         @post.image.attach(params[:post][:image])
+        # byebug
         if @post.save
+            # byebug
             flash[:sucsess] = "投稿しました！！"
             redirect_to root_url
             
@@ -39,7 +43,6 @@ class PostsController < ApplicationController
             @post_items = current_user.feed.paginate(page: params[:page])
             render 'posts/new'
         end
-        # byebug
     end
 
     def destroy
@@ -52,14 +55,15 @@ class PostsController < ApplicationController
 
         private
             def params_post
-                params.require(:post).permit(:title, :content, :image)
+                params.require(:post).permit(:title, :content, :image,category_attributes: [:name, :post_id])
             end
+            
 
-            def params_category
-                params.require(:category).permit(:name)
-            end
+            # def params_category
+            #     params.require(:caategory).permit(:name, :post_id)
+            # end
 
-            def correct_user
+            def correct_user # TODO: 機能が壊れている
                 @post = current_user.posts.find_by(id: params[:id])
                 redirect_to root_url if @post.nil?
             end

@@ -15,6 +15,22 @@
             <%= f.label :画像%>
             <div class="image"><%= f.file_field :image %></div>
         </div>
+        <%= f.fields_for :category, @post.build_category do |category|%><%# radioボタンは一つしかデータ送れない。モデルを多（category）にすると、エラーになる　%>
+            <div>
+                <div>記事にカテゴリーを付ける</div>
+                <%= category.radio_button :name, :"障がい福祉" %>
+                <%= category.label :"障がい福祉"%>
+                <%= category.radio_button :name, :"高齢者福祉" %>
+                <%= category.label :"高齢者福祉"%>
+                <%= category.radio_button :name, :"児童福祉" %>
+                <%= category.label :"児童福祉"%>
+                <%= category.radio_button :name, :"その他" %>
+                <%= category.label :"その他"%>
+            </div>
+        <% end %>
+        
+        
+        
         <div>
             <%= f.submit %>
         </div>

@@ -13,6 +13,7 @@
     <% end %>
     <li class="image"><%= image_tag post.image, accept: "image/jpeg, image/gif, image/png", size: '300x300'  if post.image.attached? %></li>
     <li class="content"><%= post.content %></li>
+    <li><%= post.category.name if post.category %></li>
     <li id="favorite_button<%= post.id %>" class="favorite_btn">
         <%= render partial: "favorites/favorite", locals: { post: post } %> <%# partial: は無いとエラーになる　%>
     </li>

@@ -1,6 +1,8 @@
 class Post < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy #foreign_key: :post_id
+  has_one :category, dependent: :destroy
+  accepts_nested_attributes_for :category, allow_destroy: true
   has_one_attached :image
   default_scope -> { order(created_at: :desc) }
   validates :user_id, presence: true
