@@ -32,6 +32,7 @@ body{
     display: flex;
     flex-flow: column;
     .form_title{
+        margin-top: 20px;
         margin-bottom: 5px;
     }
     .form_content{
@@ -43,8 +44,26 @@ body{
     .image{
         display: inline-flex;
     }
+    .form_category{
+        margin-top: 20px;
+    }
+    .form_my_category{
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
 }
 
+.edit{
+    .edit_name, .edit_addres, .edit_password{
+        margin-top: 20px;
+    }
+    .edit_image{
+        margin-top: 20px;
+        margin-bottom: 20px;
+        display: inline-flex;
+    }
+}
 
 .errors {
     border: solid;
@@ -77,6 +96,7 @@ body{
         border-bottom: solid;
         margin: 0 100px;
         font-size: 30px;
+        word-wrap: break-word;
     }
     .image{
         text-align: center;
@@ -85,7 +105,21 @@ body{
     .content{
         font-size: 20px;
         padding-left: 10px;
+        word-wrap: break-word;
     }
+    .category, .my_category{
+        border: solid 2px;
+        border-radius: 5px;
+        display: inline-block;
+        margin-left: 10px;
+        padding: 3px;
+        transition-duration: 0.3s;
+    }
+
+    .category:hover, .my_category:hover{
+        background-color: rgb(251, 255, 0);
+    }
+
     .favorite_btn {
         margin-top: 20px;
         margin-left: 10px;

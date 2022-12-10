@@ -4,35 +4,61 @@
                                                                 エラーメッセージのパーシャルは使いまわしているので、@userや、@postがある。
                                                                 object: f.objectと記述することで、そのページの( model: @~~~ )を読み込んでくれる。 %>
         <div class="form_title">
-            <%= f.label :タイトル %>
-            <%= f.text_field :title %>
+            <div>
+                <%= f.label :タイトル %>
+            </div>
+            <div>
+                <%= f.text_field :title %>
+            </div>
         </div>
         <div class="form_content">
-            <%= f.label :本文 %>
-            <%= f.text_area :content %>
+            <div>
+                <%= f.label :本文 %>
+            </div>
+            <div>
+                <%= f.text_area :content %>
+            </div>
         </div>
         <div class="post_image">
-            <%= f.label :画像%>
-            <div class="image"><%= f.file_field :image %></div>
+            <div>
+                <%= f.label :画像%>
+            </div>
+            <div class="image">
+                <%= f.file_field :image %>
+            </div>
         </div>
         <%= f.fields_for :category, @post.build_category do |c|%><%# radioボタンは一つしかデータ送れない。モデルを多（category）にすると、エラーになる　%>
-            <div>
-                <div>記事にカテゴリーを付ける</div>
-                <%= c.radio_button :name, :"障がい福祉" %>
-                <%= c.label :"障がい福祉"%>
-                <%= c.radio_button :name, :"高齢者福祉" %>
-                <%= c.label :"高齢者福祉"%>
-                <%= c.radio_button :name, :"児童福祉" %>
-                <%= c.label :"児童福祉"%>
-                <%= c.radio_button :name, :"その他" %>
-                <%= c.label :"その他"%>
+            <div class="form_category">
+                <div><strong>記事のカテゴリーを選択する</strong></div>
+                <div>
+                    <%= c.radio_button :name, :"障がい福祉" %>
+                    <%= c.label :"障がい福祉"%>
+                </div>
+                <div>
+                    <%= c.radio_button :name, :"高齢者福祉" %>
+                    <%= c.label :"高齢者福祉"%>
+                </div>
+                <div>
+                    <%= c.radio_button :name, :"児童福祉" %>
+                    <%= c.label :"児童福祉"%>
+                </div>
+                <div>
+                    <%= c.radio_button :name, :"その他" %>
+                    <%= c.label :"その他"%>
+                </div>
             </div>
         <% end %>
 
         <%= f.fields_for :my_category, @post.build_my_category do |m| %>
-            <div>カテゴリーを作成</div>
-            <%= m.label :カテゴリー名 %>
-            <%= m.text_field :name %>
+        <div class="form_my_category">
+            <div><strong>記事のカテゴリーを作成する</strong></div>
+            <div>
+                <%= m.label :カテゴリー名 %>
+            </div>
+            <div>
+                <%= m.text_field :name %>
+            </div>
+        </div>
         <% end %>
         
         

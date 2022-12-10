@@ -1,25 +1,41 @@
 <% provide(:title, "edit") %>
 <h1>プロフィール編集</h1>
-<div class="form">
+<div class="edit">
     <%= form_with(model: @user, local: true) do |x| %>
     <%= render 'shared/error_messages', object: x.object %>
-    <div>
-        <%= x.label :名前 %>
-        <%= x.text_field :name %>
+    <div class="edit_name">
+        <div>
+            <%= x.label :名前 %>
+        </div>
+        <div>
+            <%= x.text_field :name %>
+        </div>    
     </div>
-    <div>
-        <%= x.label :メールアドレス %>
-        <%= x.email_field :email %>
+    <div class="edit_addres">
+        <div>
+            <%= x.label :メールアドレス %>
+        </div>
+        <div>
+            <%= x.email_field :email %>
+        </div>
     </div>
-    <div>
-        <%= x.label :パスワード %>
-        <%= x.password_field :password %>
+    <div class="edit_password">
+        <div>
+            <%= x.label :パスワード %>
+        </div>
+        <div>
+            <%= x.password_field :password %>
+        </div>
     </div>
-    <div>
-        <%= x.label :パスワード（確認） %>
-        <%= x.password_field :password_confirmation %>
+    <div class="edit_password">
+        <div>
+            <%= x.label :パスワード（確認） %>
+        </div>
+        <div>
+            <%= x.password_field :password_confirmation %>
+        </div>
     </div>
-    <div>
+    <div class="edit_image">
         <%= x.file_field :image %>
     </div>
     <div>
