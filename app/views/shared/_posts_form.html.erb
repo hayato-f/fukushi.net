@@ -13,7 +13,7 @@
         </div>
         <div class="form_content">
             <div>
-                <%= f.label :本文 %>
+                <%= f.label :本文（＊必須） %>
             </div>
             <div>
                 <%= f.text_area :content %>
@@ -29,7 +29,7 @@
         </div>
         <%= f.fields_for :category, @post.build_category do |c|%><%# radioボタンは一つしかデータ送れない。モデルを多（category）にすると、エラーになる　%>
             <div class="form_category">
-                <div><strong>記事のカテゴリーを選択する</strong></div>
+                <div class="category_caption"><strong>カテゴリーを選択する</strong></div>
                 <div>
                     <%= c.radio_button :name, :"障がい福祉" %>
                     <%= c.label :"障がい福祉"%>
@@ -51,8 +51,8 @@
 
         <%= f.fields_for :my_category, @post.build_my_category do |m| %>
         <div class="form_my_category">
-            <div><strong>記事のカテゴリーを作成する</strong></div>
-            <div>
+            <div class="my_category_caption"><strong>カテゴリーを作成する</strong></div>
+            <div class="sub_title">
                 <%= m.label :カテゴリー名 %>
             </div>
             <div>
@@ -63,7 +63,7 @@
         
         
         
-        <div>
+        <div class="form_btn">
             <%= f.submit %>
         </div>
     <% end %>
