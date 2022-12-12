@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   # get '/post', to: 'pages#post'
   get '/about', to: 'pages#about'
   get '/my_page', to: 'pages#my_page'
+  get '/search', to: 'searches#search'
 
   # get '/posts', to: "posts#new"
   # post '/posts', to: "posts#create"
@@ -24,5 +25,6 @@ Rails.application.routes.draw do
     post '/favorite', to: 'favorites#create', as: 'create_favorite'
     delete '/favorite', to: 'favorites#destroy', as: 'destroy_favorite'
   end
+
 
 end
