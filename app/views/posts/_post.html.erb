@@ -8,7 +8,7 @@
         <li class="name"><%= link_to post.user.name, post.user %></li>
         <li class="email"><%= link_to post.user.email, post.user%></li>
     </div>
-    <% if post.title %>
+    <% if !post.title.blank? %>
         <li class="title"><%= post.title %></li>
     <% end %>
     <li class="image"><%= image_tag post.image, accept: "image/jpeg, image/gif, image/png", size: '300x300'  if post.image.attached? %></li>
