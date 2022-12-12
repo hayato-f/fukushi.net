@@ -59,13 +59,8 @@ class PostsController < ApplicationController
             def params_post
                 params.require(:post).permit(:title, :content, :image,category_attributes: [:name, :post_id], my_category_attributes: [:name, :post_id])
             end
-            
 
-            # def params_category
-            #     params.require(:caategory).permit(:name, :post_id)
-            # end
-
-            def correct_user # TODO: 機能が壊れている
+            def correct_user
                 @post = Post.find_by(id: params[:id])
                 # byebug
                 redirect_to root_url if @post.nil?
