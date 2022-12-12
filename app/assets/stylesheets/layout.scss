@@ -81,51 +81,61 @@ body{
 .post{
     margin: 0 auto;
     margin-top: 10px;
-    margin-bottom: 20px;
-    padding: 5px 0px;
+    margin-bottom: 30px;
+    padding: 0px;
     padding-left: 0;
     width: 500px;
     text-align: left;
     background-color: rgb(247, 250, 253);
     border-radius: 10px;
     // border: solid;
-    .name {
-        text-align: center;
-    }
-    .title{
-        text-align: center;
-        border-bottom: solid;
-        margin: 0 100px;
-        font-size: 30px;
-        word-wrap: break-word;
-    }
-    .image{
-        text-align: center;
-        margin: 20px 0;
-    }
-    .content{
-        font-size: 20px;
-        padding-left: 10px;
-        word-wrap: break-word;
-    }
-    .category, .my_category{
-        border: solid 2px;
-        border-radius: 5px;
-        display: inline-block;
-        margin-top: 15px;
-        margin-left: 10px;
-        padding: 3px;
-        transition-duration: 0.3s;
-    }
+    .post_body{
+        background-color: rgb(251, 249, 249);
+        padding-bottom: 10px;
+        .name {
+            text-align: center;
+        }
+        .title{
+            text-align: center;
+            border-bottom: solid;
+            margin: 0 100px;
+            font-size: 30px;
+            word-wrap: break-word;
+        }
+        .image{
+            text-align: center;
+            margin: 20px 0;
+        }
+        .content{
+            font-size: 20px;
+            padding-left: 10px;
+            word-wrap: break-word;
+        }
+        .category, .my_category{
+            border: solid 2px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 15px;
+            margin-left: 10px;
+            padding: 3px;
+            transition-duration: 0.3s;
+        }
+    
+        .category:hover, .my_category:hover{
+            background-color: rgb(251, 255, 0);
+        }
+    
+        .favorite_btn {
+            margin-top: 20px;
+            margin-left: 10px;
+            margin-bottom: 10px;
+        }
+        .post_delete{
 
-    .category:hover, .my_category:hover{
-        background-color: rgb(251, 255, 0);
+            padding-bottom: 10px;
+        }
     }
-
-    .favorite_btn {
-        margin-top: 20px;
-        margin-left: 10px;
-    }
+    
 
 }
 
