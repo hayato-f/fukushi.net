@@ -37,9 +37,7 @@ class PostsController < ApplicationController
         
         @post.user_id = current_user.id
         @post.image.attach(params[:post][:image])
-        # byebug
         if @post.save
-            # byebug
             flash[:sucsess] = "投稿しました！！"
             redirect_to root_url
             
@@ -68,7 +66,8 @@ class PostsController < ApplicationController
             # end
 
             def correct_user # TODO: 機能が壊れている
-                @post = current_user.posts.find_by(id: params[:id])
+                @post = Post.find_by(id: params[:id])
+                # byebug
                 redirect_to root_url if @post.nil?
             end
 end

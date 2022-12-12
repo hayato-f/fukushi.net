@@ -23,7 +23,7 @@
         <%= render partial: "favorites/favorite", locals: { post: post } %> <%# partial: は無いとエラーになる　%>
     </li>
     <% if current_user?(post.user) %>
-        <li><%= link_to "（投稿を削除する）", post , method: :delete, data: { confilm: "本当に削除しますか？" } %></li>
+        <li><%= link_to "（投稿を削除する）", post, method: :delete, data: { confilm: "本当に削除しますか？" } %></li>
     <% end %>
     <%# byebug %>
 </ul>
