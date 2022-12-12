@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2022_12_10_050315) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 2022_12_10_050315) do
   end
 
   create_table "my_categories", force: :cascade do |t|
-    t.string "name"
+    t.string "name", null: false
     t.integer "post_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

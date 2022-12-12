@@ -27,7 +27,11 @@ class PostsController < ApplicationController
         # @post = current_user.posts.build(params_post) # => カレントユーザーのポストのbuild。　cf) buildメソッド（主キーから、外部キーのデータを作成するときに使える。）
                                                     # Postsモデルは、Usersモデルの外部キー。
                                                     # （主キーのUsersモデル（今はログイン中のユーザー）から、そのユーザーに紐付けられたレコード（Postsモデルの）を呼び出し、Postsモデルにデータを作成する。）
-
+        
+        # my_categoryの中身がblankの時 "未分類"を代入
+        if params[:post][:my_category_attributes][:name].blank?
+            params[:post][:my_category_attributes][:name] = "未分類"
+        end
 
         @post = Post.new(params_post)
         

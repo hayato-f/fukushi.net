@@ -8,7 +8,7 @@
         <li class="name"><%= link_to post.user.name, post.user %></li>
         <li class="email"><%= link_to post.user.email, post.user%></li>
     </div>
-    <% if !post.title.blank? %>
+    <% if post.title %>
         <li class="title"><%= post.title %></li>
     <% end %>
     <li class="image"><%= image_tag post.image, accept: "image/jpeg, image/gif, image/png", size: '300x300'  if post.image.attached? %></li>
@@ -17,7 +17,7 @@
         <li class="category"><%= post.category.name  %></li>
     <% end %>
     <% if post.my_category %>
-        <li class="my_category"><%= post.my_category.name  %></li>
+        <li class="my_category"><%= post.my_category.name %></li>
     <% end %>
     <li id="favorite_button<%= post.id %>" class="favorite_btn">
         <%= render partial: "favorites/favorite", locals: { post: post } %> <%# partial: は無いとエラーになる　%>
