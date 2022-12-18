@@ -12,6 +12,9 @@
     </li>
     <li class="name"><%= @user.name %></li>
     <li class="email"><%= @user.email %></li>
+    <% if @user.id != current_user.id %>
+        <li class="email"><%= mail_to(@user.email, name = "#{@user.name}さんにメールを送る" )%></li>
+    <% end %>
     <div class="edit">
         <% if current_user.id == @user.id %> <%# ログイン中のユーザーのみプロフィーりう編集画面が表示される　%>
             <%= link_to "プロフィール編集", edit_user_path(current_user) %>  <%# localhost:3000/users/1/edit%>
