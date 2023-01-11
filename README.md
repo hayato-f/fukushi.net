@@ -22,9 +22,6 @@
 |---|---|---|
 |![投稿一覧ページ](https://user-images.githubusercontent.com/104083127/208353498-1fa8fd15-fcc7-4a50-832a-84e340631674.png)|![検索結果ページ](https://user-images.githubusercontent.com/104083127/208351061-ee262c75-3fb9-45d1-908d-51f4cbfae11f.png)|![ユーザーページ](https://user-images.githubusercontent.com/104083127/208354171-317f5629-6e58-4a90-9220-1e2b9b19887c.png)|
 
-|ER図|
-|---|
-|![ER図](https://user-images.githubusercontent.com/104083127/211585864-324c8c6e-9b39-4260-ab2a-9a449708b0d0.png)|
 
 ## アプリについて
 **作成に至った経緯**
